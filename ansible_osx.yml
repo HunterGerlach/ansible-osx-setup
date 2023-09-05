@@ -96,10 +96,10 @@
         state: present
         update_homebrew: yes
 
-    - name: "Install from Mac app store"
-      shell: mas install {{ item }}
-      with_items:
-        - 497799835 # xcode
+    # - name: "Install from Mac app store"
+    #   shell: mas install {{ item }}
+    #   with_items:
+    #     - 497799835 # xcode
 
     - name: Get the path to ZSH
       become: false
@@ -167,17 +167,17 @@
         - streetsidesoftware.code-spell-checker
         - fabiospampinato.vscode-todo-plus
 
-    - git:
-        repo: https://github.com/asdf-vm/asdf.git
-        dest: "/Users/{{ lookup('env', 'USER') }}/.asdf"
-        version: v0.8.1
+    # - git:
+    #     repo: https://github.com/asdf-vm/asdf.git
+    #     dest: "/Users/{{ lookup('env', 'USER') }}/.asdf"
+    #     version: v0.8.1
 
-    - name: "Create a default asdf configuration"
-      template:
-        src: templates/.asdfrc.j2
-        dest: /Users/{{ lookup('env', 'USER') }}/.asdfrc
-        owner: "{{ lookup('env', 'USER') }}"
-        force: yes
+    # - name: "Create a default asdf configuration"
+    #   template:
+    #     src: templates/.asdfrc.j2
+    #     dest: /Users/{{ lookup('env', 'USER') }}/.asdfrc
+    #     owner: "{{ lookup('env', 'USER') }}"
+    #     force: yes
 
     # - name: "Install asdf plugins"
     #   shell: |
@@ -238,7 +238,7 @@
         - generator-generator
         - yo
         
-    - name: re-generate bins now we've installed some yarn packages
-      shell: asdf reshim nodejs
+    # - name: re-generate bins now we've installed some yarn packages
+    #   shell: asdf reshim nodejs
         
 
