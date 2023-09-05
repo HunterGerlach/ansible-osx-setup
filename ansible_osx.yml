@@ -34,6 +34,7 @@
         #- android-studio
         #- datagrip
         - docker
+        - docker-compose
         #- dropbox
         #- figma
         - google-chrome
