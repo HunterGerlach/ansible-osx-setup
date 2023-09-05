@@ -17,11 +17,11 @@
       community.general.homebrew_tap:
         name: [
           adoptopenjdk/openjdk,
-          fishtown-analytics/dbt,
-          heroku/brew,
+          #fishtown-analytics/dbt,
+          #heroku/brew,
           homebrew/cask-versions,
-          thoughtbot/formulae,
-          weaveworks/tap,
+          #thoughtbot/formulae,
+          #weaveworks/tap,
         ]
 
     - name: Install core packages via brew casks
@@ -30,24 +30,25 @@
       ignore_errors: yes
       with_items:
         - 1password
-        - android-sdk
-        - android-studio
-        - datagrip
-        - docker
-        - dropbox
-        - figma
+        - #android-sdk
+        - #android-studio
+        - #datagrip
+        - #docker
+        - #dropbox
+        - #figma
         - google-chrome
         - google-cloud-sdk
         - iterm2
         - kindle
         - ngrok
+        - podman
         - slack
-        - sublime-text
-        - telegram
+        - #sublime-text
+        - #telegram
         - visual-studio-code
         - vlc
         - zoom
-        - tuple
+        - #tuple
 
     - name: "Install homebrew packages"
       community.general.homebrew:
@@ -56,40 +57,40 @@
           'automake',
           'aws-iam-authenticator',
           'awscli',
-          'bfg',
+          #'bfg',
           'coreutils',
           'curl',
-          'dbt@0.18.0',
-          'direnv',
-          'dnsmasq',
-          'fzf',
-          'gnu-time',
+          #'dbt@0.18.0',
+          #'direnv',
+          #'dnsmasq',
+          #'fzf',
+          #'gnu-time',
           'gpg',
-          'heroku',
+          #'heroku',
           'htop',
-          'imagemagick@6',
+          #'imagemagick@6',
           'kubectx',
           'kubernetes-cli',
           'kubernetes-helm',
           'libtool',
           'libxslt',
           'libyaml',
-          'mas',
+          #'mas',
           'openssl' ,
-          'pkg-config',
+          #'pkg-config',
           'postgresql',
-          'rcm',
+          #'rcm',
           'readline',
-          'redis',
+          #'redis',
           'sqlite3',
           'tmux',
-          'unixodbc',
+          #'unixodbc',
           'unzip',
           'vim',
-          'watchman',
-          'xz',
+          #'watchman',
+          #'xz',
           'yarn',
-          'zlib',
+          #'zlib',
           'zsh',
         ]
         state: present
@@ -178,16 +179,16 @@
         owner: "{{ lookup('env', 'USER') }}"
         force: yes
 
-    - name: "Install asdf plugins"
-      shell: |
-        source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
-        asdf plugin-add {{ item }} || exit 0
-      with_items:
-        - ruby
-        - elixir
-        - nodejs
-        - python
-        - erlang
+    # - name: "Install asdf plugins"
+    #   shell: |
+    #     source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
+    #     asdf plugin-add {{ item }} || exit 0
+    #   with_items:
+    #     - ruby
+    #     - elixir
+    #     - nodejs
+    #     - python
+    #     - erlang
 
     - name: "Install Default Python"
       shell: |
@@ -197,15 +198,15 @@
         pip3 install ansible
         asdf reshim python
 
-    - name: "Install Default Ruby"
-      shell: |
-        source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
-        asdf install ruby 3.0.2
-        asdf global ruby 3.0.2
-        gem install bundler
-        gem install cocoapods
-        gem install rubocop
-        gem install solargraph
+    # - name: "Install Default Ruby"
+    #   shell: |
+    #     source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
+    #     asdf install ruby 3.0.2
+    #     asdf global ruby 3.0.2
+    #     gem install bundler
+    #     gem install cocoapods
+    #     gem install rubocop
+    #     gem install solargraph
 
     - name: "Install default node"
       shell: |
@@ -214,19 +215,19 @@
         asdf install nodejs 16.4.2
         asdf global nodejs 16.4.2
 
-    - name: "Install default erlang"
-      shell: |
-        source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
-        asdf install erlang 24.0.2
-        asdf global  erlang 24.0.2
+    # - name: "Install default erlang"
+    #   shell: |
+    #     source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
+    #     asdf install erlang 24.0.2
+    #     asdf global  erlang 24.0.2
 
 
-    - name: "Install default elixir"
-      shell: |
-        source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
-        asdf install elixir 1.12.3-otp-24
-        asdf global elixir 1.12.3-otp-24
-        mix local.hex --force
+    # - name: "Install default elixir"
+    #   shell: |
+    #     source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
+    #     asdf install elixir 1.12.3-otp-24
+    #     asdf global elixir 1.12.3-otp-24
+    #     mix local.hex --force
 
     - name: Install yarn packages
       shell: yarn global add {{ item }}
