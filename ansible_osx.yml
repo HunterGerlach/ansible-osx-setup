@@ -33,7 +33,7 @@
         #- android-sdk
         #- android-studio
         #- datagrip
-        s- docker
+        - docker
         #- dropbox
         #- figma
         - google-chrome
