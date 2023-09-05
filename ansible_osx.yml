@@ -30,12 +30,12 @@
       ignore_errors: yes
       with_items:
         - 1password
-        - #android-sdk
-        - #android-studio
-        - #datagrip
-        - #docker
-        - #dropbox
-        - #figma
+        #- android-sdk
+        #- android-studio
+        #- datagrip
+        #- docker
+        #- dropbox
+        #- figma
         - google-chrome
         - google-cloud-sdk
         - iterm2
@@ -43,12 +43,12 @@
         - ngrok
         - podman
         - slack
-        - #sublime-text
-        - #telegram
+        #- sublime-text
+        #- telegram
         - visual-studio-code
         - vlc
         - zoom
-        - #tuple
+        #- tuple
 
     - name: "Install homebrew packages"
       community.general.homebrew:
